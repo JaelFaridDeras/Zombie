@@ -4,7 +4,6 @@ var express= require('express');
 
 var app = express();
 app.set('views',path.relative(__dirname,'views'));
-
 app.set('view engine','ejs');
 app.get('/',(Request,Response)=> Response.render('index'));
 app.get('/tipos',(Request,Response)=> Response.render('tipos'));
