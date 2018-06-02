@@ -4,8 +4,7 @@ var express= require('express');
 
 var app = express();
 app.set('views',path.relative(__dirname,'views'));
-var publicPath = path.join(__dirname,'public');
-app.use('/clases', express.static(publicPath));
+
 app.set('view engine','ejs');
 app.get('/',(Request,Response)=> Response.render('index'));
 app.get('/tipos',(Request,Response)=> Response.render('tipos'));
@@ -14,7 +13,8 @@ app.get('/clases',(Request,Response)=> Response.render('clases'));
 
 
 
-
+var publicPath = path.join(__dirname,'public');
+app.use('/recursos', express.static(publicPath));
 app.use((Request,Response)=>{
     Response.writeHead(200,{'Conten-Type':'text/plain'});
     Response.end('no se encuentra la imagen');
